@@ -9,6 +9,24 @@ import cn.bmob.v3.BmobObject;
 public class Person extends BmobObject {
     private String name;
     private String address;
+    private  Integer pAge;
+    private DataPer dataPer;
+
+    public DataPer getDataPer() {
+        return dataPer;
+    }
+
+    public Integer getpAge() {
+        return pAge;
+    }
+
+    public void setpAge(Integer pAge) {
+        this.pAge = pAge;
+    }
+
+    public void setDataPer(DataPer dataPer) {
+        this.dataPer = dataPer;
+    }
 
     public String getName() {
         return name;
