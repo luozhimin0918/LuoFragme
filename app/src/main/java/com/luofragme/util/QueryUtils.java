@@ -2,6 +2,7 @@ package com.luofragme.util;
 
 import android.content.Context;
 import android.os.Environment;
+import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.luofragme.Common;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.BmobRealTimeData;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.datatype.BmobRelation;
@@ -27,12 +29,44 @@ import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 import cn.bmob.v3.listener.UploadFileListener;
+import cn.bmob.v3.listener.ValueEventListener;
 
 /**
  * Created by Administrator on 2017/6/22.
  */
 
 public class QueryUtils {
+
+    public static void BmobListening(Context context){
+        final BmobRealTimeData rtd = new BmobRealTimeData();
+
+        rtd.start(context, new ValueEventListener() {
+            @Override
+            public void onDataChange(org.json.JSONObject  data) {
+                // TODO Auto-generated method stub
+                KLog.d("bmob", "  "+data.optString("action"));
+                KLog.json("bmob",data.toString());
+            }
+
+            @Override
+            public void onConnectCompleted() {
+                // TODO Auto-generated method stub
+                Log.d("bmob", "连接成功:"+rtd.isConnected());
+                // 监听表更新
+                rtd.subTableUpdate("Common");
+               // 监听表删除
+                rtd.subTableDelete("Common");
+              // 监听行更新
+                //        rtd.subRowUpdate(tableName, objectId);
+                // 监听行删除
+                //        rtd.subRowDelete(tableName, objectId);
+            }
+
+
+        });
+
+    }
+
     public static void BmobRegiterAPI(Context context){
         BmobUser bu = new BmobUser();
         bu.setUsername("罗志敏");

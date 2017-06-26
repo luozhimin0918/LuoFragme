@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
         ObserverMode.test();*/
       QueryUtils.QueryPostAPi(this);
+        QueryUtils.BmobListening(this);
 //        QueryUtils.updatePictureUrl(this);
 //        QueryUtils.BmobRegiterAPI(this);//注册
 //        QueryUtils.BmobLoginApi(this);//登录
