@@ -9,6 +9,11 @@ import com.luofragme.design.ObserverMode.ObserverMode;
 import com.luofragme.fackMode.Location;
 import com.luofragme.fackMode.implement.Utils;
 import com.luofragme.util.QueryUtils;
+import com.luofragme.yilaidaozi.Dating;
+import com.luofragme.yilaidaozi.OperationMain;
+import com.luofragme.yilaidaozi.Xiaolongnv;
+import com.luofragme.yilaidaozi.Yaoguo;
+import com.michael.easydialog.EasyDialog;
 
 import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobQuery;
@@ -68,14 +73,17 @@ public class MainActivity extends AppCompatActivity {
 
 
         ObserverMode.test();*/
-      QueryUtils.QueryPostAPi(this);
-        QueryUtils.BmobListening(this);
+//      QueryUtils.QueryPostAPi(this);
+//        QueryUtils.BmobListening(this);
 //        QueryUtils.updatePictureUrl(this);
 //        QueryUtils.BmobRegiterAPI(this);//注册
 //        QueryUtils.BmobLoginApi(this);//登录
 //        QueryUtils.updateDataPerson(this);
 //        QueryUtils.QueryPersionAPi(this);
 //        QueryUtils.insertDataPerson(this);
+//        new OperationMain().PlayMedia();
+        Dating dating =new Yaoguo("guoer");
+        Dating dating1 =new Xiaolongnv("longer");
 
     }
 

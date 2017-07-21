@@ -53,4 +53,7 @@ dependencies {
 
     compile 'com.github.zhaokaiqiang.klog:library:1.5.0'//打印log 第三方包
     compile 'com.alibaba:fastjson:1.2.10'
+    compile 'com.github.luozhimin0918.LuoComLibJitPack:easydialog:m1.0.34'
+
+
 }
